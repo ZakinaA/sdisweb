@@ -8,57 +8,64 @@
 <%@page import="model.Pompier"%>
 <%@page import="model.Caserne"%>
 <%@page import="java.util.ArrayList"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SDIS WEB</title>
-    </head>
-    <body>
-        <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>APPLICATION DE GESTION SDIS CALVADOS</title>
-    </head>
-    <body>
-        <h1>Liste des pompiers du Calvados</h1>
-            <%
-                ArrayList<Pompier> lesPompiers = (ArrayList)request.getAttribute("pLesPompiers");
-            %>
-            <table>  
-            <thead>
-                <tr>             
-                    <th>id</th>
-                    <th>nom</th>
-                    <th>prenom</th>
-                    <th>caserne</th>                
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <%
-                        for (Pompier p : lesPompiers)
-                        {              
-                            out.println("<tr><td>");
-                            out.println(p.getId());
-                            out.println("</a></td>");
+<%@include file="../header.jsp"%>
+       
+    <%
+        ArrayList<Pompier> lesPompiers = (ArrayList)request.getAttribute("pLesPompiers");
+    %>
+            
+   <section class="tables py-0">
+        <div class="container-fluid">
+            <div class="row gy-4">
+              <div class="col-lg-6">
+                <div class="card mb-0">
+                  <div class="card-header">
+                    <h3 class="h4 mb-0">Liste des pompiers</h3>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="table-responsive">         
+         
+                    <table  class="table mb-0 table-striped table-sm">  
+                        <thead>
+                            <tr>             
+                                <th>id</th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th>caserne</th>                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <%
+                                for (Pompier p : lesPompiers)
+                                {              
+                                    out.println("<tr><td>");
+                                    out.println(p.getId());
+                                    out.println("</a></td>");
 
-                            out.println("<td><a href ='../ServletPompier/consulter?idPompier="+ p.getId()+ "'>");
-                            out.println(p.getNom());
-                            out.println("</td>");;
+                                    out.println("<td><a href ='../ServletPompier/consulter?idPompier="+ p.getId()+ "'>");
+                                    out.println(p.getNom());
+                                    out.println("</td>");;
 
-                            out.println("<td>");
-                            out.println(p.getPrenom());
-                            out.println("</td>");
+                                    out.println("<td>");
+                                    out.println(p.getPrenom());
+                                    out.println("</td>");
                            
-                            out.println("<td>");
-                            out.println(p.getUneCaserne().getNom());
-                            out.println("</td>");
+                                    out.println("<td>");
+                                    out.println(p.getUneCaserne().getNom());
+                                    out.println("</td>");
                                
-                        }
-                    %>
-                </tr>
-            </tbody>
-        </table>
-    </body>
-    </body>
-</html>
+                                }
+                            %>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>    
+               
+    <%@include file="../footer.jsp"%>

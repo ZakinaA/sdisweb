@@ -6,24 +6,36 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Pompier"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SDIS WEB</title>
-    </head>
-    <body>
+<%@include file="../header.jsp"%>
+
         <%
             Pompier p = (Pompier)request.getAttribute("pPompier");
         %>
-        <h1>Bienvenue <%  out.println(p.getPrenom());%>  <%  out.println(p.getNom());%></h1>
-        <table>
-            <tr>
-                <td>Numero Bip : </td><td>bip bip</td>
-            </tr>
-            <tr>
-                <td>Caserne : </td><td><%  out.println(p.getUneCaserne().getNom());%></td>
-            </tr>
-        </table>
-    </body>
-</html>
+           
+        <section class="tables py-0">
+          <div class="container-fluid">
+            <div class="row gy-4">
+              <div class="col-lg-6">
+                <div class="card mb-0">
+                  <div class="card-header">
+                    <h3 class="h4 mb-0">Bienvenue <%  out.println(p.getPrenom());%>  <%  out.println(p.getNom());%></h3>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="table-responsive">                
+                        <table class="tables py-0">
+                            <tr>
+                                <td>Numero Bip : </td><td>bip bip</td>
+                            </tr>
+                            <tr>
+                                <td>Caserne : </td><td><%  out.println(p.getUneCaserne().getNom());%></td>
+                            </tr>
+                        </table>           
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>    
+<%@include file="../footer.jsp"%>
+   

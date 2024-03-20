@@ -76,14 +76,13 @@ public class ServletPompier extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         String url = request.getRequestURI();  
-       
+        String url = request.getRequestURI();
+        
         // Récup et affichage les eleves 
         if(url.equals("/sdisweb/ServletPompier/lister"))
         {              
             ArrayList<Pompier> lesPompiers = DaoPompier.getLesPompiers(cnx);
             request.setAttribute("pLesPompiers", lesPompiers);
-            //System.out.println("lister eleves - nombres d'élèves récupérés" + lesEleves.size() );
            getServletContext().getRequestDispatcher("/vues/pompier/listerPompiers.jsp").forward(request, response);
         }
         
@@ -93,7 +92,6 @@ public class ServletPompier extends HttpServlet {
             // tout paramètre récupéré de la request Http est de type String
             // Il est donc nécessaire de caster le paramètre idPompier en int
             int idPompier = Integer.parseInt((String)request.getParameter("idPompier"));
-            System.out.println( "pompier à afficher = " + idPompier);
             Pompier p= DaoPompier.getPompierById(cnx, idPompier);
             request.setAttribute("pPompier", p);
             getServletContext().getRequestDispatcher("/vues/pompier/consulterPompier.jsp").forward(request, response);       
@@ -142,7 +140,7 @@ public class ServletPompier extends HttpServlet {
             }
             else 
             {
-                // Cas oùl'insertion en bdd a échoué
+                // Cas où l'insertion en bdd a échoué
                 //renvoyer vers une page d'erreur 
             }
            
