@@ -52,9 +52,9 @@
           </div>
         </div>
         <div class="container-fluid d-flex align-items-center justify-content-between py-1">
-          <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset" href="index.html">
-              <div class="brand-text brand-big"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
-              <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
+          <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset" href="#">
+              <div class="brand-text brand-big"><strong class="text-primary">SDIS</strong><strong>WEB</strong></div>
+              <div class="brand-text brand-sm"><strong class="text-primary">1</strong><strong>4</strong></div></a>
             <button class="sidebar-toggle">
                   <svg class="svg-icon svg-icon-sm svg-icon-heavy transform-none">
                     <use xlink:href="#arrow-left-1"> </use>
